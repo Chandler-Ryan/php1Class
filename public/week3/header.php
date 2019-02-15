@@ -1,4 +1,5 @@
 <?php
+session_name('CRyan-Week3');
 session_start();
 ?>
 <!DOCTYPE html>

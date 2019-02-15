@@ -154,6 +154,24 @@ include('header.php');
                 </div>
             </div>
         </div>
+    <?php 
+        if(!isset($_SESSION['orders'])){
+            $_SESSION['orders'] = array();
+        }else{
+            // add to array
+            $_SESSION['orders'][] = array(
+                'name' => 'desk',
+                'total' => $cost
+            );
+        }
+
+        if(!isset($_SESSION['orders'])){
+            foreach($_SESSION['orders'] as $order){
+                echo $order['name'].': '.$order['total'].'<br>';
+            }        
+        }
+
+    ?>
     </main>
 
 <?php include('footer.php');

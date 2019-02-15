@@ -7,8 +7,8 @@ include('header.php');
 
     <div class="row my-5">
     
-        <div class="col-md my-2">
-            <div class="card">
+        <div class="col-md my-2 d-flex align-items-stretch">
+            <div class="card flex-fill">
                 <div class="card-header">
                     Unit 1
                 </div>
@@ -17,13 +17,14 @@ include('header.php');
                     <div class="list-group">
                         <a href="calculator.php" class="list-group-item list-group-item-action">Week 2</a>
                         <a href="parts.php" class="list-group-item list-group-item-action d-flex justify-content-between">Week 3 <span class="badge badge-danger badge-pill">new</span></a>
+                        <a href="lab.php" class="list-group-item list-group-item-action d-flex justify-content-between">Week 3 - Lab<span class="badge badge-danger badge-pill">new</span></a>
                     </div>
                 </div>
             </div>    
         </div>
 
-        <div class="col-md my-2">
-            <div class="card">
+        <div class="col-md my-2 d-flex align-items-stretch">
+            <div class="card flex-fill">
                 <div class="card-header">
                     Unit 2
                 </div>
@@ -37,8 +38,8 @@ include('header.php');
             </div>    
         </div>
 
-        <div class="col-md my-2">
-            <div class="card">
+        <div class="col-md my-2 d-flex align-items-stretch">
+            <div class="card flex-fill">
                 <div class="card-header">
                     Unit 3
                 </div>
