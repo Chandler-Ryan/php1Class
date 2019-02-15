@@ -60,7 +60,7 @@ else if(!empty($_POST['songName']) && !empty($_POST['songArtist']))
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="/week3"><i class="fas fa-angle-double-left"></i> Back to Assignment List</a>
+                        <a class="nav-link" href="../week3"><i class="fas fa-angle-double-left"></i> Back to Assignment List</a>
                     </li>
                 </ul>
             </div>        
@@ -121,7 +121,7 @@ else if(!empty($_POST['songName']) && !empty($_POST['songArtist']))
                 </div>
             </div>
             <div class="form-group row">
-                <div class="col-lg-10 offset-lg-2">
+                <div class="col-lg-8 offset-lg-4">
                     <input type="submit" value="Add Song to Playlist" class="btn btn-outline-success">
                 </div>
             </div>    

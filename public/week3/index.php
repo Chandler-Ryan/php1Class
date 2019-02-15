@@ -17,7 +17,7 @@ include('header.php');
                     <div class="list-group">
                         <a href="calculator.php" class="list-group-item list-group-item-action">Week 2</a>
                         <a href="parts.php" class="list-group-item list-group-item-action d-flex justify-content-between">Week 3 <span class="badge badge-danger badge-pill">new</span></a>
-                        <a href="lab.php" class="list-group-item list-group-item-action d-flex justify-content-between">Week 3 - Lab<span class="badge badge-danger badge-pill">new</span></a>
+                        <a href="lab.php" class="list-group-item list-group-item-action d-flex justify-content-between">Wk3-Lab<span class="badge badge-danger badge-pill">new</span></a>
                     </div>
                 </div>
             </div>    
