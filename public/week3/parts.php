@@ -1,100 +1,15 @@
 <?php
 $title = 'Rick Hammer\'s Desk Parts';
-$total = 0;
-$products = array(
-    array( 
-        'id' => '1',
-        'name' => 'Drawer Pull',
-        'price' => 3.99,
-        'image' => 'https://farm3.staticflickr.com/2165/2246272794_7328992509_b.jpg',
-        'description' => 'Antique bronze drawer pull. Adds character to your desk drawers.'),
-    array(
-        'id' => '2',
-        'name' => 'Drawer Organizer',
-        'price' => 17.99,
-        'image' => 'https://images-na.ssl-images-amazon.com/images/I/91tlrCudmyL._SX679_.jpg',
-        'description' => 'Bamboo wood adjustable drawer organizer with 6 removable dividers.'),
-    array(
-        'id' => '3',
-        'name' => 'Pencil Holder',
-        'price' => '9.95',
-        'image' => 'https://images-na.ssl-images-amazon.com/images/I/51V2aMxGrYL._SX679_.jpg',
-        'description' => ' Bamboo wood desk pen/pencil holder. Size: 3" L x 3" W x 4" H.'),
-    array(
-        'id' => '4',
-        'name' => 'Desk Lamp',
-        'price' => 24.95,
-        'image' => 'https://images-na.ssl-images-amazon.com/images/I/61u9oOHCKAL._SX679_.jpg',
-        'description' => 'Swing arm is easily adjustable to direct the light wherever you need it.')
-    );
-
-    function getProductArrayByID($products, $id)
-    {
-        foreach($products as $prod)
-        {
-            if ($prod['id'] == $id) return $prod;
-        }
-        return false;
-    }
-
-    include('header.php');
-   
-    // Check for items added to the cart
-    if(!empty($_POST))
-    {
-        if(isset($_POST['clearCart']))
-        {
-            session_destroy();
-            $host  = $_SERVER['HTTP_HOST'];
-            $uri = $_SERVER['PHP_SELF'];
-            header("Location: http://$host$uri");
-            exit;
-        }
-        else
-        {
-            if(intval($_POST['quantity'])>0 && intval($_POST['quantity'])<10)
-            {
-                $_SESSION['cart'][$_POST['item']] = $_POST['quantity'];
-            }
-        }
-    }
-
-    // set the order total
-    if(isset($_SESSION['cart']))
-    {
-        foreach ($_SESSION['cart'] as $id => $quanity)
-        {
-            $orderedItem = getProductArrayByID($products,$id);
-            $total += $orderedItem['price'] * $quanity;
-        }
-    }
+$alert = '';
+include('header.php');
     
 ?>
 
-<?php if (isset($_SESSION['cart'])): ?>
+<?php if (!empty($alert)): ?>
 <div class="alert alert-success alert-dismissible fade show" role="alert">
     <div class="container">
-        <div class="col-8 offset-2">
-            <p>Thank you for your order of:</p>
-            <div class="list-group">
-                <?php foreach($_SESSION['cart'] as $item => $quanity): ?>
-                    <div class="list-group-item list-group-item-success">
-                        <div class="row">
-                            <div class="col" style="height:80px;">
-                                <img src="<?=getProductArrayByID($products, $item)['image']?>" alt="" class="img-fluid rounded mx-auto d-block h-100">
-                            </div>
-                            <div class="col">
-                                <h3><?=getProductArrayByID($products, $item)['name']?></h3>
-                                <div>
-                                    <?= $quanity ?> @ <?php $price=getProductArrayByID($products, $item)['price']; echo '$'.$price; ?> = $<?=number_format($quanity * $price, 2)?>
-                                </div>                          
-                            </div>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
-            </div>
-            <p>for a total of: $<?=number_format($total, 2)?></p>
-            <form action="" method="post"><input type="submit" value="Clear Cart" name="clearCart" class="my-4 btn btn-outline-danger"></form>
+        <div class="col-sm-8 offset-sm-2">
+            <p><?=$alert ?></p>
         </div>
     </div>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">

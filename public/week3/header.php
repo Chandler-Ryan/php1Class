@@ -1,6 +1,7 @@
 <?php
 session_name('CRyan-Week3');
 session_start();
+require_once('cart.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +25,7 @@ session_start();
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav mr-auto">
                     <li class="nav-item<?=$title == 'Rick Hammer\'s Home' ? ' active' : '' ?>">
                         <a class="nav-link" href="index.php">Home</a>
                     </li>
@@ -33,6 +34,11 @@ session_start();
                     </li>
                     <li class="nav-item<?=$title == 'Rick Hammer\'s Desk Parts' ? ' active' : '' ?>">
                         <a class="nav-link" href="parts.php">Accessories</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#cartModal">View Cart</button>
                     </li>
                 </ul>
             </div>        
