@@ -2,7 +2,6 @@
         
 </footer>
 
-<?php if (isset($_SESSION['cart'])): ?>
 <div class="modal fade" id="cartModal" role="dialog" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
@@ -14,7 +13,7 @@
             </div>
             <div class="modal-body">
                 <div class="container">
-                    <div class="">
+                    <?php if (isset($_SESSION['cart'])): ?>
                         <p>Thank you for your order of:</p>
                         <div class="list-group">
                             <?php foreach($_SESSION['cart'] as $item => $quanity): ?>
@@ -39,19 +38,22 @@
                                 </div>
                             <?php endforeach; ?>
                         </div>
-                        <p>for a total of: $<?=number_format($total, 2)?></p>            
-                    </div>
+                        <p>for a total of: $<?=number_format($total, 2)?></p>
+                    <?php else: ?>
+                        <h3 class="text-center">You do not have any items in your cart.</h3>            
+                    <?php endif; ?>
                 </div>
             </div>
             <div class="modal-footer">
+            <?php if (isset($_SESSION['cart'])): ?>
                 <form action="" method="post">
                     <input type="submit" value="Clear Cart" name="clearCart" class="my-4 btn btn-outline-danger">
                 </form>
+            <?php endif; ?>
             </div>        
         </div>    
     </div>
 </div>
-<?php endif; ?>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
