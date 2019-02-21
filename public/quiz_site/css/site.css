@@ -1,0 +1,23 @@
+
+body {
+   background: linear-gradient(#3b238c,rgb(179, 136, 214)) fixed;
+}
+
+main {
+    background: white;
+    border-radius: 1rem;
+    margin-top: 5rem;
+    margin-bottom: 10rem;
+    padding: 1rem;
+}
+
+.navbar {
+    -webkit-box-shadow: 0 8px 6px -6px black;
+    -moz-box-shadow: 0 8px 6px -6px black;
+    box-shadow: 0 8px 6px -6px black;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    height: 100px;
+    width:100px;
+}
