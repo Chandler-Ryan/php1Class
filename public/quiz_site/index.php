@@ -9,7 +9,7 @@ if(isset($_POST['name'])){
 ?>
 
 <main class="container">
-    <h1 class="mt-5 p-3 text-center">Welcome to the PHP Quiz Site!</h1>
+    <h1 class="p-3 text-center">Welcome to the PHP Quiz Site!</h1>
 
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
