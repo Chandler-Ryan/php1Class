@@ -16,7 +16,8 @@ $questions = array(
         'choices' => array(
             'kestral' => 'Kestral',
             'apache' => 'Apache',
-            'nginx' => 'Nginx'    
+            'nginx' => 'Nginx',
+            'flask' => 'Flask'    
         ),
         'answer' => array('apache', 'nginx'),
         'type' => 'checkbox'
@@ -35,10 +36,11 @@ $questions = array(
         'question' => "What databases does Homestead have installed?",
         'choices' => array(
             'mysql' =>'MySQL',
+            'mssql' => 'SQL Server',
             'postgre' => 'PostgreSQL',
             'sqlite' => 'SQLite',
-            'mongo' => 'MongoDB',
-            'mssql' => 'SQL Server'
+            'mongo' => 'MongoDB'
+            
         ),
         'answer' => array('mysql', 'postgre', 'sqlite', 'mongo'),
         'type' => 'checkbox'    
@@ -47,10 +49,11 @@ $questions = array(
         'question' => "Which hypervisors does support the homestead vagrant box?",
         'choices' => array(
             'virtualBox' =>'Virtualbox',
+            'xenServer' => 'Xen Server',
             'vmWare' => 'VM Ware',
             'parallels' => 'Parallels',
-            'hyperV' => 'Hyper-V',
-            'xenServer' => 'Xen Server'),
+            'hyperV' => 'Hyper-V'
+            ),
         'answer' => array('virtualBox', 'vmWare', 'parallels', 'hyperV'),
         'type' => 'checkbox'    
     )
@@ -114,7 +117,7 @@ endif;?>
                 <div class="card-body">
                     <h5 class="card-title">Please answer all 5 of the questions.</h5>
                     <form method="POST">
-                        <?php foreach(displayFormElements($questions) as $item) echo $item; ?>
+                        <?php foreach(displayFormElements($questions, calcResults($questions)) as $item) echo $item; ?>
                         <button type="submit" class="btn btn-outline-primary">Submit</button>
                     </form>
                 </div>

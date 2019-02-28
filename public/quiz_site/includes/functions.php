@@ -1,11 +1,12 @@
 <?php
 
-function displayFormElements(array $questions){
+function displayFormElements(array $questions, array $results = array()){
     $elements = array();
-    foreach($questions as $questionNumber => $questionProperties): ?>
+    $j =0;
+    foreach($questions as $questionNumber => $questionProperties):?>
         <div class="form-group m-3">
-            <?php echo $questionProperties['question'];
-            if($questionProperties['type'] == 'checkbox'):?>
+            <p class="<?=empty($results[$j])&&!empty($results)?'text-danger':'';?>"><?=$questionProperties['question'];?></p>
+            <?php if($questionProperties['type'] == 'checkbox'):?>
                 <?php $i = 0;
                 foreach ($questionProperties['choices'] as $value => $label): ?>
                     <div class="form-check">
@@ -25,11 +26,9 @@ function displayFormElements(array $questions){
                 <?php endforeach;
             endif;?>
         </div>
-    <?php endforeach;
+    <?php $j++; endforeach;
     return $elements;
 }
-
-print_r($_POST);
 
 function calcResults(array $questions){
     $results = array();
